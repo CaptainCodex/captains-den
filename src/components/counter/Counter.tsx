@@ -1,84 +1,56 @@
-import React, { Component } from 'react';
+import React, { Component, RefObject } from 'react';
 import { Waypoint } from 'react-waypoint';
+import Anime from 'animejs';
 
 interface Props {
   count: number;
   duration: number;
 }
 
-interface State {
-  currentCount: number;
-  delay: number;
-  direction: number;
-}
-
-export class Counter extends Component<Props, State> {
+export class Counter extends Component<Props> {
   static defaultProps = {
     count: 0,
     duration: 3000
   };
 
-  state: State = {
-    currentCount: 0,
-    delay: 0,
-    direction: 0
-  };
+  container: RefObject<HTMLDivElement> = React.createRef();
 
-  clearInterval: NodeJS.Timeout | undefined;
+  handleWaypointEnter = () => {
+    Anime.remove(this.container.current);
 
-  componentDidMount() {
-    this.loadTimer();
-  }
-
-  loadTimer = () => {
-    const delay = this.props.duration / this.props.count;
-
-    this.setState({
-      delay
-    });
-
-    this.clearInterval = setInterval(() => {
-      if (
-        (this.state.currentCount > 0 && this.state.direction === -1) ||
-        (this.state.currentCount < this.props.count &&
-          this.state.direction === 1)
-      ) {
-        let currentCount = this.state.currentCount + this.state.direction;
-
-        currentCount = Math.min(Math.max(currentCount, 0), this.props.count);
-
-        this.setState({
-          currentCount
-        });
-      }
-    }, delay);
-  };
-
-  handleWaypointEnter = (event: Waypoint.CallbackArgs) => {
-    this.setState({
-      direction: 1
+    Anime({
+      autoplay: true,
+      duration: this.props.duration,
+      targets: this.container.current,
+      innerText: [0, this.props.count],
+      round: 1,
+      easing: 'easeInOutExpo'
     });
   };
 
-  handleWaypointLeave = (event: Waypoint.CallbackArgs) => {
-    this.setState({
-      direction: -1
+  handleWaypointLeave = () => {
+    Anime.remove(this.container.current);
+
+    Anime({
+      autoplay: true,
+      duration: this.props.duration,
+      targets: this.container.current,
+      innerText: [this.props.count, 0],
+      round: 1,
+      easing: 'easeInOutExpo'
     });
   };
 
   componentWillUnmount() {
-    if (this.clearInterval) {
-      clearInterval(this.clearInterval);
-    }
+    Anime.remove(this.container.current);
   }
 
   render() {
     const { handleWaypointEnter, handleWaypointLeave } = this;
-    const { currentCount } = this.state;
 
     return (
       <Waypoint onEnter={handleWaypointEnter} onLeave={handleWaypointLeave}>
-        <div className="counter">{currentCount}</div>
+        <div className="counter" ref={this.container} />
       </Waypoint>
     );
   }
