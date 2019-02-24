@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as nock from 'nock';
+import React from 'react';
+import nock from 'nock';
 import { mount, configure } from 'enzyme';
 import { Provider } from 'react-redux';
 import App from '../App';
@@ -8,7 +8,7 @@ import * as actions from '../features/hello/actions';
 import store from '../redux';
 import { defer } from '../../utils';
 
-import * as Adapter from 'enzyme-adapter-react-16';
+import Adapter from 'enzyme-adapter-react-16';
 import { getCapitalizedGreeting } from '../features/hello/selectors';
 
 configure({ adapter: new Adapter() });
