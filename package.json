@@ -22,7 +22,6 @@
     "react-helmet": "^5.2.0",
     "react-redux": "6.0.0",
     "react-router-dom": "^4.3.1",
-    "react-simple-animate": "^2.6.4",
     "react-waypoint": "^9.0.0",
     "reactstrap": "^7.1.0",
     "redux": "^4.0.1",

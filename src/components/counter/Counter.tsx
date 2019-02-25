@@ -24,7 +24,7 @@ export class Counter extends Component<Props> {
       targets: this.container.current,
       innerText: [0, this.props.count],
       round: 1,
-      easing: 'easeInOutExpo'
+      easing: 'easeOutExpo'
     });
   };
 
