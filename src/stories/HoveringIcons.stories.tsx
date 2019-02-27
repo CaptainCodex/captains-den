@@ -15,13 +15,14 @@ const icons = [
   'git.svg',
   'git.svg'
 ].map(icon => ({
-  path: `../../assets/icons/particles/${icon}`
+  path: `assets/icons/particles/${icon}`
 }));
 
 storiesOf('HoveringIcons', module)
   .addDecorator(withKnobs)
   .add('default', () => (
     <div style={{ height: 3000 }}>
+      <div>Scroll down for floating icons</div>
       <div
         style={{
           position: 'absolute',

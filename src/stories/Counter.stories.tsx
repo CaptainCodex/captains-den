@@ -8,7 +8,10 @@ import { Counter } from '../components/counter/Counter';
 storiesOf('Counter', module)
   .addDecorator(withKnobs)
   .add('default', () => (
-    <div style={{ paddingTop: 1000, height: 2000 }}>
-      <Counter count={5000} duration={5000} />
+    <div>
+      Scroll down for an animated counter
+      <div style={{ paddingTop: 1000, height: 2000, fontSize: 72 }}>
+        <Counter count={5000} duration={5000} />
+      </div>
     </div>
   ));

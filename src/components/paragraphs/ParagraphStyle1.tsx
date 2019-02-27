@@ -48,13 +48,13 @@ const styles = StyleSheet.create({
 
   tagline: {
     color: '#646f79',
-    fontWeight: 100,
+    fontWeight: 300,
     fontSize: 13,
     textTransform: 'uppercase'
   },
 
   subheader: {
     color: '#646f79',
-    fontWeight: 100
+    fontWeight: 300
   }
 });

@@ -9,8 +9,8 @@ function loadStories() {
 
 addDecorator(
   withOptions({
-    name: 'Storybook',
-    url: '#'
+    name: `Captain's Den`,
+    url: 'https://github.com/CaptainCodex/captains-den'
   })
 );
 

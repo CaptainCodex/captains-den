@@ -1,5 +1,5 @@
 {
-  "name": "captains-react-starter-recipe",
+  "name": "captains-den",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
@@ -44,6 +44,7 @@
     "@storybook/addon-storysource": "^4.1.12",
     "@storybook/addons": "^4.1.12",
     "@storybook/react": "^4.1.12",
+    "@storybook/storybook-deployer": "^2.8.1",
     "@types/animejs": "^2.0.1",
     "@types/aos": "^3.0.1",
     "@types/aphrodite": "^0.5.13",
@@ -107,6 +108,7 @@
     "tslint-check": "tslint-config-prettier-check ./tslint.json",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
+    "deploy-storybook": "storybook-to-ghpages",
     "pre-commit": "pretty-quick --staged && npm test"
   },
   "browserslist": [

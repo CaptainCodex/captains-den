@@ -40,8 +40,10 @@ storiesOf('Accordion', module)
   .addDecorator(withKnobs)
   .add('default', () => (
     <div style={{ padding: 10, width: 400, margin: 'auto' }}>
+      <div>Open 1 at a time</div>
       <Accordion rows={rows} />
       <div style={{ width: 10, display: 'inline-block' }} />
+      <div>Open multiple</div>
       <Accordion rows={rows} single={false} />
     </div>
   ));

@@ -27,7 +27,7 @@ const particles = [
   'typescript.png',
   'vue.svg'
 ].map(icon => ({
-  path: `../../assets/icons/particles/${icon}`,
+  path: `assets/icons/particles/${icon}`,
   size: ParticleSize.XL
 }));
 
